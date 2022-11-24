@@ -1,0 +1,249 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>index</title>
+<script type="text/javascript" src="static/js/jquery.js"></script>
+<script type="text/javascript" src="static/js/echarts.min.js"></script>
+<script type="text/javascript" src="static/js/js.js"></script>
+<script src="static/js/swiper.min.js"></script>
+ <link rel="stylesheet" href="static/css/swiper.min.css">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+	<div class="head clearfix">
+		<div class="home"><a href="https://www.upc.edu.cn/"><img src="static\images\Home.png" width="28"> <i> 学校首页</i></a></div>
+	<div class="menu menu1 pulll_left">
+		<ul>
+			<li><a href="https://arxiv.org/pdf/1708.02660v1.pdf">论文地址 </a></li>
+			<li><a href="https://arxiv.org/abs/1708.02660v1">abstract</a></li>
+
+		</ul>
+		</div>
+	<h1 class="pulll_left">visimportance 论文复现结果可视化</h1>
+		<div class="menu menu2 pulll_left">
+		<ul>
+			<li><a href="https://www.upc.edu.cn/">演示视频 </a></li>
+			<li><a href="https://github.com/cvzoya/visimportance">代码与环境</a></li>
+		</ul>
+		</div>
+		
+		<div class="time" id="showTime">2018/6/12 17:00:12</div>
+		<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+    } 
+
+</script>
+	</div>
+	<div class="mainbox">
+	
+	<ul class="clearfix nav1">
+		<li style="width: 25%">
+		<div class="box">
+			<div class="tit">模型展示</div>
+			<!-- <div class="boxnav" id="echart1" style="height: 180px;">
+
+			</div> -->
+			<img src="..\static\images\model.png" alt=""  height="250px" width="1050px">
+		</div>
+		<!-- <div class="box">
+			<div class="tit">相对重要性得分表（海报设计）</div>
+			<div class="boxnav" style="height: 180px;" id="chart2">
+			</div> 
+			<img src="..\static\images\sample_architecture.png" alt=""  width="400" height="300">
+		</div> -->
+			
+			<div class="box">
+			<div class="tit">重要性气泡图</div>
+			<div class="boxnav" id="echart3" style="height: 240px;">
+				<div id="echart3" style="height: 240px;"></div>
+				
+				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+				<script type="module">
+				import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+				import define from "https://api.observablehq.com/@2007040230/zjc.js?v=3";
+				new Runtime().module(define, name => {
+				  if (name === "chart") return new Inspector(document.querySelector("#echart3"));
+				});
+				</script>
+			</div>
+			</div>
+		</li>
+		<li style="width: 50%">
+		
+		<div class="box">
+			<div class="boxnav mapc" style="height: 500px; position: relative; padding: 0">
+				
+				
+				
+
+  <!-- Swiper -->
+
+  <div class="swiper-container gallery-top">
+    <div class="swiper-wrapper">
+		<div class="swiper-slide" style="background-size: 100% 100%;background-image:url(static\\images\\chart_4.jpg)"></div>
+		<div class="swiper-slide" style="background-size: 100% 100%;background-image:url(static\\images\\chart_5.jpg)"></div>
+		<div class="swiper-slide" style="background-size: 100% 100%;background-image:url(static\\images\\chart_35.jpg)"></div>
+		<div class="swiper-slide" style="background-size: 100% 100%;background-image:url(static\\images\\chart_45.jpg)"></div>
+		<div class="swiper-slide" style="background-size: 100% 100%;background-image:url(static\\images\\chart_46.jpg)"></div>
+		<div class="swiper-slide" style="background-size: 100% 100%;background-image:url(static\\images\\chart_48.jpg)"></div>
+        <div class="swiper-slide" style="background-size: 100% 100%;background-image:url(static\\images\\chart_66.jpg)"></div>
+   
+		
+    </div>
+
+    <!-- Add Arrows -->
+
+    <div class="swiper-button-next swiper-button-white"></div>
+
+    <div class="swiper-button-prev swiper-button-white"></div>
+
+  </div>
+
+  <div class="swiper-container gallery-thumbs">
+
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image:url(static\\images\\m_chart_4.png)"></div>
+		<div class="swiper-slide" style="background-image:url(static\\images\\m_chart_5.png)"></div>
+		<div class="swiper-slide" style="background-image:url(static\\images\\m_chart_35.png)"></div>
+		<div class="swiper-slide" style="background-image:url(static\\images\\m_chart_45.png)"></div>
+		<div class="swiper-slide" style="background-image:url(static\\images\\m_chart_46.png)"></div>
+		<div class="swiper-slide" style="background-image:url(static\\images\\m_chart_48.png)"></div>
+        <div class="swiper-slide" style="background-image:url(static\\images\\m_chart_66.png)"></div>
+    </div>
+
+  </div>
+ <script>
+var galleryThumbs = new Swiper('.gallery-thumbs', {
+	spaceBetween: 0,
+	slidesPerView: 5,
+	freeMode: true,
+	watchSlidesVisibility: true,
+	watchSlidesProgress: true,
+});
+var galleryTop = new Swiper('.gallery-top', {
+	spaceBetween: 10,
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	},
+	thumbs: {
+		swiper: galleryThumbs
+	}
+});
+  </script>		
+			</div>
+			</div>
+		<ul class="nav1">
+			<li style="width: 50%">
+			<div class="box">
+			<div class="tit">相对重要性得分表（可视化）</div>
+			<iframe width="100%" height="395.671875" frameborder="0"
+  			src="https://observablehq.com/embed/9d6c6281d666b324?cells=cao_budget"></iframe>
+			<!-- <div class="boxnav"  id="echart4" style="height: 200px;">
+				<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+				<script type="module">
+				import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+				import define from "https://api.observablehq.com/d/fa84a09a4ff5eca0@353.js?v=3";
+				new Runtime().module(define, name => {
+				  if (name === "chart") return new Inspector(document.querySelector("#echart4"));
+				});
+				</script> 
+			</div> -->
+			</div>
+			</li>
+			<li style="width: 50%">
+			
+			<div class="box">
+			<div class="tit">相对重要性得分表（海报设计）</div>
+			<div class="boxnav"  id="echart5" style="height: 200px;">
+				<iframe width="100%" height="396.34375" frameborder="0"
+  				src="https://observablehq.com/embed/9ce63a8a2fd3af59?cells=cao_budget"></iframe>
+			</div>
+			</div></li>
+			</ul>
+			
+		</li>
+		<li style="width: 25%">
+		<div class="box">
+			
+			<div class="boxnav"  style="height: 76px;">
+			<div class="weather">
+				<div class="">
+				<div class="wt1">
+					<div class="wt2"><img src="static\images\weather.png"><p>29<sup>℃</sup></p></div>
+					<span>多云转晴</span>
+					</div>
+					
+				</div>
+				<div class="wt03">
+				<p><span>气温：</span>20 ~ 32℃</p>
+				<p><span>降水量：</span>32毫米</p>
+				<p><span>风况：</span>西北风微风</p>
+				</div>
+				</div>
+			</div>
+			</div>
+		<div class="box">
+			<div class="tit">颜色突出度关联分析</div>
+			<div class="boxnav" id="echart6" style="height: 170px;"></div>
+			<div id="echart6"></div>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+			<script type="module">
+			import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+			import define from "https://api.observablehq.com/d/857dbb1686637053.js?v=3";
+			new Runtime().module(define, name => {
+			if (name === "chart") return new Inspector(document.querySelector("#echart6"));
+			});
+			</script>
+			</div>
+			
+		<div class="box">
+			<div class="tit">文字特征对注意力的影响</div>
+			<div class="boxnav" style="height: 300px;width: 400px; overflow: scroll" id="echart7"></div>
+			
+			<div id="echart7"></div>
+
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+			<script type="module">
+			import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+			import define from "https://api.observablehq.com/d/0bc3f6ae1cd0b238.js?v=3";
+			new Runtime().module(define, name => {
+			if (name === "chart") return new Inspector(document.querySelector("#echart7"));
+			});
+			</script>
+			</div>
+		<div class="box">
+			<div class="tit">小组分工</div>
+			<div class="boxnav" style="height: 170px;">
+			<ul class="gnlb">
+				<li><span style="font-size:19px; color:#ffffff;" >肖杭：  <em style="font-size: 12px;color:#e5b412;">代码复现，大屏展示</em></span></li>
+				<li><span style="font-size:18px; color:#ffffff;">周建川：<em style="font-size:12px;color:#e5b412;">代码复现，图形绘制</em></span></li>
+				<li><span style="font-size:18px; color:#ffffff;">李浩臣：<em style="font-size:12px;color:#e5b412;">代码复现，图形绘制</em></span></li>
+				<li><span style="font-size:18px; color:#ffffff;">李文轩：<em style="font-size:12px;color:#e5b412;">结果拼接，图形绘制</em></span></li>
+				</ul>
+			
+			</div>
+			</div>
+		</li>
+		</ul>
+		
+		
+		
+		
+	</div>
+</body>
+</html>
